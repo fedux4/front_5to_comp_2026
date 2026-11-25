@@ -1,0 +1,328 @@
+/* =========================================================
+   Marvel Rivals Hub — styles.css
+   Metodología: Mobile first
+   ========================================================= */
+
+:root {
+  /* Colores principales */
+  --color-primary: #e8352e;
+  --color-primary-dark: #b81f1b;
+  --color-secondary: #1b1f3b;
+  --color-accent: #f4b63f;
+
+  /* Colores de fondo y superficie */
+  --color-bg: #0d0d14;
+  --color-surface: #17171f;
+  --color-border: #2a2a36;
+
+  /* Colores de texto */
+  --color-text: #f2f1f5;
+  --color-text-muted: #9a98a8;
+
+  /* Colores por rol (tarjetas de personajes) */
+  --color-duelist: #e8352e;
+  --color-vanguard: #4f8ef7;
+  --color-strategist: #3fdc8c;
+
+  /* Tipografías */
+  --font-heading: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Espaciados */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Otros */
+  --radius: 8px;
+  --max-width: 1180px;
+  --transition: 0.2s ease;
+}
+
+/* ---------- Reset básico ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+body, h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+
+/* ---------- Fondo y texto general ---------- */
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+/* ---------- Títulos y párrafos ---------- */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+h1 { font-size: 2.1rem; }
+h2 { font-size: 1.7rem; margin-bottom: var(--space-md); }
+h3 { font-size: 1.25rem; }
+p  { color: var(--color-text-muted); }
+
+/* ---------- Enlaces y botones ---------- */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--color-primary); }
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform var(--transition), background var(--transition), color var(--transition);
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.btn-outline {
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+}
+.btn-outline:hover {
+  background: var(--color-accent);
+  color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header {
+  background: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: var(--space-sm);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-text);
+}
+.logo-mark {
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-heading);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+}
+.logo-text strong { color: var(--color-accent); }
+
+/* Botón hamburguesa (mobile) */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+.nav-toggle span {
+  width: 26px;
+  height: 3px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+/* Menú de navegación (mobile: oculto hasta abrir) */
+.main-nav {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition);
+}
+.main-nav.open { max-height: 300px; }
+.main-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+}
+.main-nav a { color: var(--color-text); font-weight: 500; }
+.main-nav a.active,
+.main-nav a:hover { color: var(--color-accent); }
+
+/* =========================================================
+   SECCIONES GENERALES
+   ========================================================= */
+.section { padding: var(--space-xl) 0; }
+.section-alt { background: var(--color-surface); }
+
+/* ---------- Presentación (hero) ---------- */
+.hero {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(244,182,63,0.08) 0 2px, transparent 2px) 0 0 / 28px 28px,
+    linear-gradient(180deg, var(--color-secondary), var(--color-bg));
+  padding: var(--space-xl) 0;
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+}
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  align-items: center;
+  text-align: center;
+}
+.hero-text p { margin: var(--space-sm) 0 var(--space-md); }
+
+/* ---------- Información ---------- */
+.info-grid {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-lg);
+  align-items: center;
+}
+.info-text p { margin-bottom: var(--space-sm); }
+
+/* ---------- Galería ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+
+/* =========================================================
+   TARJETAS (personajes)
+   ========================================================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-text-muted);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition);
+}
+.card:hover { transform: translateY(-4px); }
+
+.card--duelist     { border-top-color: var(--color-duelist); }
+.card--vanguard     { border-top-color: var(--color-vanguard); }
+.card--strategist   { border-top-color: var(--color-strategist); }
+
+.card-image { border-radius: 0; aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+
+.card-body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+.card-role {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+.card-body p { flex: 1; }
+.card-body .btn { align-self: flex-start; margin-top: var(--space-xs); }
+
+/* ---------- Enlace externo ---------- */
+.external-box {
+  text-align: center;
+  max-width: 640px;
+}
+.external-box p { margin: var(--space-sm) 0 var(--space-md); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  background: #000;
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-lg) 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+.footer-grid h3 {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-bottom: 0.3rem;
+}
+.footer-grid p {
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   TABLET — a partir de 600px
+   ========================================================= */
+@media (min-width: 600px) {
+  .hero-grid { flex-direction: row; text-align: left; }
+  .hero-text { flex: 1; }
+  .hero-image { flex: 1; }
+
+  .info-grid { flex-direction: row; align-items: center; }
+  .info-text { flex: 1.2; }
+  .info-image { flex: 1; }
+
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* =========================================================
+   DESKTOP — a partir de 1024px
+   ========================================================= */
+@media (min-width: 1024px) {
+  h1 { font-size: 2.9rem; }
+
+  .nav-toggle { display: none; }
+  .main-nav { width: auto; max-height: none; overflow: visible; }
+  .main-nav ul { flex-direction: row; gap: var(--space-md); padding-top: 0; }
+
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .cards-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: repeat(4, 1fr); }
+}

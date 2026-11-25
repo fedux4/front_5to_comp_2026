@@ -1,0 +1,20 @@
+PRESENTACIÓN DEL PROYECTO — MARVEL RIVALS HUB
+Autor: Franco Díaz
+
+Presentación del tema
+Elegí como tema Marvel Rivals, un videojuego de disparos por equipos con personajes de Marvel. Lo seleccioné porque me gusta jugarlo y porque sus héroes, roles y escenarios me daban mucho contenido para organizar en una página.
+
+Objetivo del sitio
+El objetivo del sitio es presentar el juego de forma clara y rápida: qué es, cómo se juega, qué personajes hay y dónde conseguir más información. Está pensado para quienes todavía no lo conocen y para jugadores que quieren una guía simple.
+
+Decisiones de diseño
+Usé rojo, dorado y fondo oscuro azulado. El rojo y el dorado son los colores clásicos de Marvel, así que el sitio se asocia enseguida con el tema, y el fondo oscuro recuerda a la interfaz de los videojuegos y hace que el texto claro tenga buen contraste. Para los títulos elegí Bebas Neue, una tipografía condensada que parece de póster de cómic, y para los textos Inter, que es muy legible en pantalla. Organicé la página en presentación, información, galería, personajes y enlace externo, de modo que se lea de lo general a lo particular. Las imágenes son ilustraciones simples hechas con formas y colores, en lugar de arte oficial, y en las tarjetas de personajes usé un color según el rol (rojo para Duelista, azul para Vanguardia, verde para Estratega) para que se distingan a simple vista.
+
+Herramientas utilizadas
+Usé HTML para la estructura y el contenido, y CSS para colores, tipografías, tarjetas y adaptación a pantallas, con variables en :root y metodología mobile first. Usé GitHub para guardar el proyecto y GitHub Pages para publicarlo en internet.
+
+Dificultades encontradas
+Lo más difícil fue lograr que la página se viera bien en celular, tablet y computadora. Lo resolví empezando por el diseño de celular y agregando media queries para pantallas más grandes, combinando Flexbox y Grid. También me costó que las imágenes y los enlaces funcionaran al publicar el sitio, y lo resolví revisando las rutas de los archivos.
+
+Aprendizaje obtenido
+Aprendí a diseñar con mobile first, a usar variables en CSS, a maquetar con Flexbox y Grid, y a publicar un sitio con GitHub Pages.
